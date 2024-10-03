@@ -1,0 +1,68 @@
+﻿<Window x:Class="f.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:f"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Name="window1">
+
+    <Window.Resources>
+        <Style TargetType="Slider">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Minimum" Value="1"/>
+            <Setter Property="Maximum" Value="100"/>
+            <Setter Property="Value" Value="5"/>
+            <Setter Property="Background" Value="#56c"/>
+            
+        </Style>
+        
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="Ivory"/>
+            <Setter Property="Foreground" Value="#56c"/>
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="GroupName" Value="mode"/>
+            <Setter Property="Background" Value="#56c"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+               
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <InkCanvas Grid.Column="1" Grid.Row="0" Grid.RowSpan="7" x:Name="canvas">
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes x:Name="attributes" Color="Black" Height="5" Width="1"/>
+            </InkCanvas.DefaultDrawingAttributes>
+        </InkCanvas>
+        <ComboBox Grid.Column="0" Grid.Row="0" SelectedIndex="0">
+            <ComboBoxItem Content="black" Selected="Black"/>
+            <ComboBoxItem Content="white" Selected="White"/>
+            <ComboBoxItem Content="blue" Selected="Blue"/>
+        </ComboBox>
+        <Slider Grid.Row="1" ValueChanged="Height"/>
+        <Slider Grid.Row="2" ValueChanged="Width"/>
+        <RadioButton Grid.Row="3" x:Name="ink" Content="ink" IsChecked="True"  Checked="ink_Checked"/>
+        <RadioButton Grid.Row="4" x:Name="select" Content="select" Checked="select_Checked"/>
+        <RadioButton Grid.Row="5" x:Name="erase" Content="erase" Checked="erase_Checked"/>
+
+    </Grid>
+</Window>
